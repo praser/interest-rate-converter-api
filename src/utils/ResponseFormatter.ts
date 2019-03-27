@@ -1,12 +1,11 @@
-import { Moment } from 'moment-timezone';
+import TaxCalculatorInterface from "../models/TaxCalculatorInterface";
 
 abstract class ResponseFormatter {
-    private static readonly dateFormat: string = `${process.env.DATEFORMAT}`;
-
-    public static json(moments: Array<Moment>): object {
+    public static json(taxCalculator: TaxCalculatorInterface): object {
         const obj = {
-            count: moments.length,
-            dates: moments.map(moment => moment.format(this.dateFormat))
+            perYear: taxCalculator.perYear(),
+            perMonth: taxCalculator.perMonth(),
+            perDay: taxCalculator.perDay()
         }
 
         return obj;

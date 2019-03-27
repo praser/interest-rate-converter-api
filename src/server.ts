@@ -1,14 +1,12 @@
 import express from 'express';
-import periodRouter from './routes/period-router';
-import holidaysRouter from './routes/holidays-router';
-import weekendsRouter from './routes/weekends-router';
-import workdaysRouter from './routes/workdays-router';
+import perDayRouter from './routes/perDayRouter';
+import perMonthRouter from './routes/perMonthRouter';
+import perYearRouter from './routes/perYearRouter';
 
 const server = express();
 
-server.use('/', periodRouter);
-server.use('/holidays', holidaysRouter);
-server.use('/weekends', weekendsRouter);
-server.use('/workdays', workdaysRouter);
+server.use('/per-day', perDayRouter);
+server.use('/per-month', perMonthRouter);
+server.use('/per-year', perYearRouter);
 
 export default server;
