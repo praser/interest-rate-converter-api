@@ -9,7 +9,7 @@ class YearTaxCalculator implements TaxCalculatorInterface {
     private daysInYear: number = parseInt(`${process.env.DAYS_IN_YEAR}`);
     
     constructor(tax: number) {
-        this.tax = tax;
+        this.tax = tax/100;
     }
 
     perYear(): number {
@@ -17,10 +17,10 @@ class YearTaxCalculator implements TaxCalculatorInterface {
     }
     
     perMonth(): number {
-        return (1 + this.tax) ^ (1 / this.monthsInYear) -1;
+        return Math.pow((1 + this.tax), (1 / this.monthsInYear)) -1;
     }
     perDay(): number {
-        return (1 + this.tax) ^ (1 / this.daysInYear) -1;
+        return Math.pow((1 + this.tax), (1 / this.daysInYear)) -1;
     }
 }
 

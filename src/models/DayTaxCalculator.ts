@@ -9,15 +9,15 @@ class DayTaxCalculator implements TaxCalculatorInterface {
     private daysInYear: number = parseInt(`${process.env.DAYS_IN_YEAR}`);
     
     constructor(tax: number) {
-        this.tax = tax;
+        this.tax = tax/1000;
     }
 
     perYear(): number {
-        return (1 + this.tax) ^ this.daysInYear - 1;
+        return Math.pow((1 + this.tax), this.daysInYear) - 1;
     }
     
     perMonth(): number {
-        return (1 + this.tax) ^ this.daysInMonth - 1;
+        return Math.pow((1 + this.tax), this.daysInMonth) - 1;
     }
 
     perDay(): number {

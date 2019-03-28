@@ -8,18 +8,18 @@ class MonthTaxCalculator implements TaxCalculatorInterface {
     private monthsInYear: number = parseInt(`${process.env.MONTHS_IN_YEAR}`);
     
     constructor(tax: number) {
-        this.tax = tax;
+        this.tax = tax/1000;
     }
 
     perYear(): number {
-        return (1 + this.tax) ^ 1 - 1;
+        return Math.pow((1 + this.tax), this.monthsInYear) - 1;
     }
     
     perMonth(): number {
         return this.tax;
     }
     perDay(): number {
-        return (1 + this.tax) ^ (1 / this.monthsInYear) -1;
+        return Math.pow((1 + this.tax), (1 / this.monthsInYear)) -1;
     }
 }
 
