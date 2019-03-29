@@ -1,9 +1,11 @@
 import * as dotenv from 'dotenv'
 import YearTaxCalculator from "../../models/YearTaxCalculator";
+import ParamsUtil from '../utils/ParamsUtil';
 
 dotenv.config();
 
-let tax!: string;
+let taxStr!: string;
+let tax!: number;
 let yearTaxCalculator!: YearTaxCalculator;
 
 beforeAll(() => {
@@ -11,20 +13,21 @@ beforeAll(() => {
   process.env.DAYS_IN_YEAR = '252'
   process.env.MONTHS_IN_YEAR = '12'
 
-  tax = '0.05';
-  yearTaxCalculator = new YearTaxCalculator(tax);
+  taxStr = '12.4';
+  tax = ParamsUtil.parseTax(taxStr);
+  yearTaxCalculator = new YearTaxCalculator(taxStr);
 })
 
-test('5% converted per year is 5%', () => {
-  expect(yearTaxCalculator.perYear()).toBe(parseFloat(tax));
+test('12.4% converted per year is 12.4%', () => {
+  expect(yearTaxCalculator.perYear()).toBe(tax);
 })
 
-test('5% converted per month is 0.40%', () => {
-  const result = 0.0040741237836483535;
+test('12.4% converted per month is 0.97%', () => {
+  const result = 0.009788745350229444;
   expect(yearTaxCalculator.perMonth()).toBe(result);
 })
 
-test('5% converted per day is 0.19%', () => {
-  const result = 0.00019363050654397362;
+test('12.4% converted per day is 0.04%', () => {
+  const result = 0.00046397169472611743;
   expect(yearTaxCalculator.perDay()).toBe(result);
 })
