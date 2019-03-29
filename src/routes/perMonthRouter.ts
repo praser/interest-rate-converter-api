@@ -1,5 +1,5 @@
 import express from 'express';
-import ResponseFormatter from '../utils/ResponseFormatter';
+import ResponseFormatter from '../utils/HttpResponseUtil';
 import MonthTaxCalculator from '../models/MonthTaxCalculator';
 
 const perMonthRouter = express.Router();

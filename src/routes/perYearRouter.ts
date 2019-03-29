@@ -1,6 +1,6 @@
 import express from 'express';
 import YearTaxCalculator from '../models/YearTaxCalculator';
-import ResponseFormatter from '../utils/ResponseFormatter';
+import ResponseFormatter from '../utils/HttpResponseUtil';
 
 const perYearRouter = express.Router();
 

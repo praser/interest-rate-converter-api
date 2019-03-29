@@ -1,4 +1,4 @@
-import ResponseFormatter from "../../utils/ResponseFormatter";
+import ResponseFormatter from "../../utils/HttpResponseUtil";
 import YearTaxCalculator from "../../models/YearTaxCalculator";
 
 let obj!: object;

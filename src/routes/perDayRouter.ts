@@ -1,5 +1,5 @@
 import express from 'express';
-import ResponseFormatter from '../utils/ResponseFormatter';
+import ResponseFormatter from '../utils/HttpResponseUtil';
 import DayTaxCalculator from '../models/DayTaxCalculator';
 
 const perDayRouter = express.Router();

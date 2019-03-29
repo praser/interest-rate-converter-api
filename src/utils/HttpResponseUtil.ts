@@ -1,6 +1,6 @@
 import TaxCalculatorInterface from "../models/TaxCalculatorInterface";
 
-abstract class ResponseFormatter {
+abstract class HttpResponseUtil {
     public static json(taxCalculator: TaxCalculatorInterface): object {
         const obj = {
             perYear: taxCalculator.perYear(),
@@ -12,4 +12,4 @@ abstract class ResponseFormatter {
     }
 }
 
-export default ResponseFormatter;
+export default HttpResponseUtil;
