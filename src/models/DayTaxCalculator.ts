@@ -1,29 +1,33 @@
-import * as dotenv from 'dotenv';
-import TaxCalculatorInterface from "./TaxCalculatorInterface";
-import ParamsUtil from '../utils/ParamsUtil';
-
-dotenv.config();
+import config from "../config";
+import ParamsUtil from "../utils/ParamsUtil";
+import TaxCalculatorInterface from "./InterfaceTaxCalculator";
 
 class DayTaxCalculator implements TaxCalculatorInterface {
-    private tax: number = 0;
-    private daysInMonth: number = parseInt(`${process.env.DAYS_IN_MONTH}`);
-    private daysInYear: number = parseInt(`${process.env.DAYS_IN_YEAR}`);
-    
-    constructor(tax: string) {
-        this.tax = ParamsUtil.parseTax(tax);
-    }
+  private tax: number = 0;
+  private daysInMonth: number = parseInt(
+    process.env.DAYS_IN_MONTH || config.daysInMonth,
+    config.radix
+  );
+  private daysInYear: number = parseInt(
+    process.env.DAYS_IN_YEAR || config.daysInYear,
+    config.radix
+  );
 
-    perYear(): number {
-        return Math.pow(1 + this.tax, this.daysInYear) - 1;
-    }
-    
-    perMonth(): number {
-        return Math.pow(1 + this.tax, this.daysInMonth) - 1;
-    }
+  constructor(tax: string) {
+    this.tax = ParamsUtil.parseTax(tax);
+  }
 
-    perDay(): number {
-        return this.tax;
-    }
+  public perYear(): number {
+    return Math.pow(1 + this.tax, this.daysInYear) - 1;
+  }
+
+  public perMonth(): number {
+    return Math.pow(1 + this.tax, this.daysInMonth) - 1;
+  }
+
+  public perDay(): number {
+    return this.tax;
+  }
 }
 
 export default DayTaxCalculator;

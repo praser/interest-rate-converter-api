@@ -1,12 +1,12 @@
-import express from 'express';
-import YearTaxCalculator from '../models/YearTaxCalculator';
-import ResponseFormatter from '../utils/HttpResponseUtil';
+import express from "express";
+import YearTaxCalculator from "../models/YearTaxCalculator";
+import ResponseFormatter from "../utils/HttpResponseUtil";
 
 const perYearRouter = express.Router();
 
-perYearRouter.get('/:tax', (req, res) => {
-    const taxCalculator = new YearTaxCalculator(req.params.tax);
-    res.send(ResponseFormatter.json(taxCalculator));
+perYearRouter.get("/:tax", (req, res) => {
+  const taxCalculator = new YearTaxCalculator(req.params.tax);
+  res.send(ResponseFormatter.json(taxCalculator));
 });
 
 export default perYearRouter;

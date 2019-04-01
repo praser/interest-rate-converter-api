@@ -10,10 +10,11 @@
   "main": "src/entry.ts",
   "scripts": {
     "dev": "nodemon --watch \"src/\" --exec \"ts-node src/entry.ts\" -e ts",
-    "test": "jest --no-cache",
+    "test": "jest  --no-cache",
     "build": "tsc",
     "prod": "npm run build && node dist/entry.js",
-    "readme": "node ./node_modules/.bin/node-readme"
+    "readme": "node ./node_modules/.bin/node-readme",
+    "lint": "tslint --project . --fix && prettier --write \"src\/**\/*.ts\""
   },
   "keywords": [
     "anbima",
@@ -30,7 +31,7 @@
     "transform": {
       "^.+\\.ts$": "ts-jest"
     },
-    "testRegex": "\\.test\\.ts",
+    "testRegex": "\\.spec\\.ts",
     "moduleFileExtensions": [
       "ts",
       "tsx",
