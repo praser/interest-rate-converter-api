@@ -1,5 +1,6 @@
 import * as dotenv from 'dotenv';
 import TaxCalculatorInterface from "./TaxCalculatorInterface";
+import ParamsUtil from '../utils/ParamsUtil';
 
 dotenv.config();
 
@@ -9,7 +10,7 @@ class MonthTaxCalculator implements TaxCalculatorInterface {
     private daysInMonth: number = parseInt(`${process.env.DAYS_IN_MONTH}`);
     
     constructor(tax: string) {
-        this.tax = parseFloat(tax);
+        this.tax = ParamsUtil.parseTax(tax);
     }
 
     perYear(): number {

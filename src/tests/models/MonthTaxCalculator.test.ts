@@ -1,27 +1,31 @@
 import MonthTaxCalculator from "../../models/MonthTaxCalculator";
+import ParamsUtil from "../../utils/ParamsUtil";
 
-let tax!: string;
+let taxStr!: string;
+let tax!: number;
 let monthTaxCalculator!: MonthTaxCalculator;
 
 beforeAll(() => {
   process.env.DAYS_IN_MONTH = '30';
-  process.env.DAYS_IN_YEAR = '252'
+  process.env.DAYS_IN_YEAR = '360'
   process.env.MONTHS_IN_YEAR = '12'
   
-  tax = '0.05';
-  monthTaxCalculator = new MonthTaxCalculator(tax);
+  taxStr = '0.5';
+  tax = ParamsUtil.parseTax(taxStr);
+
+  monthTaxCalculator = new MonthTaxCalculator(taxStr);
 })
 
-test('5% converted per year is 79.58%', () => {
-  const result = 0.7958563260221292;
+test('5% converted per year is 6.16%', () => {
+  const result = 0.06167781186449761;
   expect(monthTaxCalculator.perYear()).toBe(result);
 })
 
 test('5% converted per month is 5%', () => {
-  expect(monthTaxCalculator.perMonth()).toBe(parseFloat(tax));
+  expect(monthTaxCalculator.perMonth()).toBe(tax);
 })
 
-test('5% converted per day is 0.16%', () => {
-  const result = 0.0016276620118331753;
+test('5% converted per day is 0.01%', () => {
+  const result = 0.00016626520422846625;
   expect(monthTaxCalculator.perDay()).toBe(result);
 })
