@@ -1,6 +1,6 @@
 import * as dotenv from 'dotenv';
 import TaxCalculatorInterface from "./TaxCalculatorInterface";
-import ParamsUtil from '../tests/utils/ParamsUtil';
+import ParamsUtil from '../utils/ParamsUtil';
 
 dotenv.config();
 

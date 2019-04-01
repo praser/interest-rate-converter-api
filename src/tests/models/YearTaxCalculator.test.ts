@@ -1,6 +1,6 @@
 import * as dotenv from 'dotenv'
 import YearTaxCalculator from "../../models/YearTaxCalculator";
-import ParamsUtil from '../utils/ParamsUtil';
+import ParamsUtil from '../../utils/ParamsUtil';
 
 dotenv.config();
 
