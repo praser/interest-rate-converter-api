@@ -1,6 +1,6 @@
-laguage: node_js
+language: node_js
 node_js:
-  - "node"
+  - 11.9.0
 
 # include the docker service so that we can user the docker command in the deployment script
 services:
