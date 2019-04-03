@@ -1,0 +1,14 @@
+laguage: node_js
+node_js:
+  - "node"
+
+# include the docker service so that we can user the docker command in the deployment script
+services:
+  - docker
+
+
+deploy:
+  provider: script
+  script: bash src/scripts/deploy.sh
+  on:
+    branch: master
