@@ -5,6 +5,7 @@
     "lib": ["dom", "esnext"],
     "module": "commonjs",
     "outDir": "./dist",
+    "sourceMap": true,
     "strict": true,
     "target": "es5",
     "noUnusedLocals": true,
@@ -20,6 +21,12 @@
         "suppressWhileTypeErrorsPresent": false,
         "mockTypeScriptVersion": false
       }
-    ]
-  }
+    ],
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "src/tests"
+  ],
 }
