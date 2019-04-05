@@ -1,9 +1,7 @@
 import config from "../config";
-import ParamsUtil from "../utils/ParamsUtil";
-import ITaxCalculator from "./ITaxCalculator";
+import TaxConverter from "./TaxConverter";
 
-class MonthTaxCalculator implements ITaxCalculator {
-  private tax: number = 0;
+class MonthTaxConverter extends TaxConverter {
   private monthsInYear: number = parseInt(
     process.env.MONTHS_IN_YEAR || config.monthsInYear,
     config.radix,
@@ -14,7 +12,7 @@ class MonthTaxCalculator implements ITaxCalculator {
   );
 
   constructor(tax: string) {
-    this.tax = ParamsUtil.parseTax(tax);
+    super(tax);
   }
 
   public perYear(): number {
@@ -24,9 +22,10 @@ class MonthTaxCalculator implements ITaxCalculator {
   public perMonth(): number {
     return this.tax;
   }
+
   public perDay(): number {
     return Math.pow(1 + this.tax, 1 / this.daysInMonth) - 1;
   }
 }
 
-export default MonthTaxCalculator;
+export default MonthTaxConverter;
