@@ -1,12 +1,19 @@
 language: node_js
 node_js:
   - 11.9.0
-
-# include the docker service so that we can user the docker command in the deployment script
 services:
-  - docker
-
-
+  - dock
+env:
+  global:
+    - CC_TEST_REPORTER_ID=$CC_TEST_REPORTER_ID
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+script:
+  - npm run test
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 deploy:
   provider: script
   script: bash src/scripts/deploy.sh
