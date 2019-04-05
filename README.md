@@ -1,20 +1,10 @@
 # interest-tax-conversor
 
-![github-issues](https://img.shields.io/github/issues/praser/interest-tax-conversor.svg)
+![github-issues](https://img.shields.io/github/issues/praser/interest-tax-conversor.svg) [![Build Status](https://travis-ci.com/praser/interest-tax-conversor.svg?branch=master)](https://travis-ci.com/praser/interest-tax-conversor) [![Maintainability](https://api.codeclimate.com/v1/badges/1427bfa05f0c749c2ba5/maintainability)](https://codeclimate.com/github/praser/interest-tax-conversor/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/1427bfa05f0c749c2ba5/test_coverage)](https://codeclimate.com/github/praser/interest-tax-conversor/test_coverage)
 
-API to deal with interest tax conversions
-
-![nodei.co](https://nodei.co/npm/interest-tax-conversor.png?downloads=true&downloadRank=true&stars=true)
-
-![travis-status](https://img.shields.io/travis/praser/interest-tax-conversor.svg)
-![stars](https://img.shields.io/github/stars/praser/interest-tax-conversor.svg)
-![forks](https://img.shields.io/github/forks/praser/interest-tax-conversor.svg)
-
-![](https://david-dm.org/praser/interest-tax-conversor/status.svg)
-![](https://david-dm.org/praser/interest-tax-conversor/dev-status.svg)
+# A simple Rest API to deal with interest tax conversions #
 
 ## Features
-
 
 ## Install
 
@@ -30,6 +20,9 @@ API to deal with interest tax conversions
  - **npm run readme** : `node ./node_modules/.bin/node-readme`
 
 ## Dependencies
+
+ ![](https://david-dm.org/praser/interest-tax-conversor/status.svg)
+![](https://david-dm.org/praser/interest-tax-conversor/dev-status.svg)
 
 Package | Version | Dev
 --- |:---:|:---:

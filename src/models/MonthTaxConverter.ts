@@ -1,20 +1,18 @@
 import config from "../config";
-import ParamsUtil from "../utils/ParamsUtil";
-import TaxCalculatorInterface from "./InterfaceTaxCalculator";
+import TaxConverter from "./TaxConverter";
 
-class MonthTaxCalculator implements TaxCalculatorInterface {
-  private tax: number = 0;
+class MonthTaxConverter extends TaxConverter {
   private monthsInYear: number = parseInt(
     process.env.MONTHS_IN_YEAR || config.monthsInYear,
-    config.radix
+    config.radix,
   );
   private daysInMonth: number = parseInt(
     process.env.DAYS_IN_MONTH || config.daysInMonth,
-    config.radix
+    config.radix,
   );
 
   constructor(tax: string) {
-    this.tax = ParamsUtil.parseTax(tax);
+    super(tax);
   }
 
   public perYear(): number {
@@ -24,9 +22,10 @@ class MonthTaxCalculator implements TaxCalculatorInterface {
   public perMonth(): number {
     return this.tax;
   }
+
   public perDay(): number {
     return Math.pow(1 + this.tax, 1 / this.daysInMonth) - 1;
   }
 }
 
-export default MonthTaxCalculator;
+export default MonthTaxConverter;
