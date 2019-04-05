@@ -1,16 +1,16 @@
 import config from "../config";
 import ParamsUtil from "../utils/ParamsUtil";
-import TaxCalculatorInterface from "./InterfaceTaxCalculator";
+import ITaxCalculator from "./ITaxCalculator";
 
-class MonthTaxCalculator implements TaxCalculatorInterface {
+class MonthTaxCalculator implements ITaxCalculator {
   private tax: number = 0;
   private monthsInYear: number = parseInt(
     process.env.MONTHS_IN_YEAR || config.monthsInYear,
-    config.radix
+    config.radix,
   );
   private daysInMonth: number = parseInt(
     process.env.DAYS_IN_MONTH || config.daysInMonth,
-    config.radix
+    config.radix,
   );
 
   constructor(tax: string) {

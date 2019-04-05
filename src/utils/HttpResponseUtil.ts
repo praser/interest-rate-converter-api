@@ -1,11 +1,11 @@
-import TaxCalculatorInterface from "../models/InterfaceTaxCalculator";
+import ITaxCalculator from "../models/ITaxCalculator";
 
 abstract class HttpResponseUtil {
-  public static json(taxCalculator: TaxCalculatorInterface): object {
+  public static json(taxCalculator: ITaxCalculator): object {
     const obj = {
       perDay: taxCalculator.perDay(),
       perMonth: taxCalculator.perMonth(),
-      perYear: taxCalculator.perYear()
+      perYear: taxCalculator.perYear(),
     };
 
     return obj;
