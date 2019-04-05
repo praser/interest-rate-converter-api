@@ -16,8 +16,6 @@ abstract class TaxConverterBuilder {
       case "/per-day":
         iTaxConverter = new DayTaxConverter(tax);
         break;
-      default:
-        break;
     }
 
     return iTaxConverter;

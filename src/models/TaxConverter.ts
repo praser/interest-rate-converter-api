@@ -1,3 +1,4 @@
+import HttpErrors from "../HttpErrors";
 import ITaxConverter from "./ITaxConverter";
 
 abstract class TaxConverter implements ITaxConverter {
@@ -20,7 +21,9 @@ abstract class TaxConverter implements ITaxConverter {
   }
 
   private parseTax(tax: string): number {
-    return parseFloat(tax) / 100;
+    const parsedTax = parseFloat(tax) / 100;
+    if (isNaN(parsedTax)) { throw new Error(HttpErrors.BAD_REQUEST().description); }
+    return parsedTax;
   }
 }
 
