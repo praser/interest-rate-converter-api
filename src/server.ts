@@ -1,7 +1,7 @@
 import cors from "cors";
 import * as dotenv from "dotenv";
 import express from "express";
-import path from "path"
+import path from "path";
 import swaggerUi from "swagger-ui-express";
 import YAML from "yamljs";
 import HttpErrors from "./HttpErrors";
