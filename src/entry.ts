@@ -1,8 +1,5 @@
-import * as dotenv from "dotenv";
 import config from "./config";
 import server from "./server";
-
-dotenv.config();
 
 const port: number = parseInt(process.env.PORT || "3000", config.radix);
 
