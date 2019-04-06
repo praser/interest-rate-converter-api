@@ -1,8 +1,9 @@
-import * as dotenv from 'dotenv';
-import server from './server';
+import config from "./config";
+import server from "./server";
 
-dotenv.config();
+const port: number = parseInt(process.env.PORT || "3000", config.radix);
 
-server.listen(process.env.PORT, () => {
-    console.log(`[SERVER] Running at http://localhost:${process.env.PORT}`);
-})
+server.listen(port, () => {
+  // tslint:disable-next-line:no-console
+  console.log(`[SERVER] Running at http://localhost:${port}`);
+});

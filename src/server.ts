@@ -1,14 +1,36 @@
-import express from 'express';
-import periodRouter from './routes/period-router';
-import holidaysRouter from './routes/holidays-router';
-import weekendsRouter from './routes/weekends-router';
-import workdaysRouter from './routes/workdays-router';
+import cors from "cors";
+import * as dotenv from "dotenv";
+import express from "express";
+import swaggerUi from "swagger-ui-express";
+import YAML from "yamljs";
+import HttpErrors from "./HttpErrors";
+import router from "./routes/router";
 
+dotenv.config();
 const server = express();
 
-server.use('/', periodRouter);
-server.use('/holidays', holidaysRouter);
-server.use('/weekends', weekendsRouter);
-server.use('/workdays', workdaysRouter);
+const swaggerDocument = YAML.load(
+  "/Users/praser/Projects/interest-tax-conversor/src/openApi.yaml",
+);
+const urls = [process.env.PRODUCTION_URL, process.env.SANDBOX_URL];
+const swaggerServers = urls
+  .map((url, index) => {
+    const description = index === 0 ? "Production Server" : "Sandbox Server";
+    return { description, url };
+  })
+  .filter((sawaggerServer) => sawaggerServer.url !== undefined);
+
+swaggerDocument.servers = swaggerServers;
+
+server.use(cors());
+server.use(/\/per\-(day|month|year)/, router);
+server.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+server.all("*", (_, res) => {
+  return res.status(HttpErrors.NOT_FOUND().code).send({
+    error: {
+      ...HttpErrors.NOT_FOUND(),
+    },
+  });
+});
 
 export default server;

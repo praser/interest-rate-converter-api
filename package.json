@@ -5,31 +5,54 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/praser/interest-tax-conversion"
+    "url": "https://github.com/praser/interest-tax-conversor"
   },
   "main": "src/entry.ts",
   "scripts": {
     "dev": "nodemon --watch \"src/\" --exec \"ts-node src/entry.ts\" -e ts",
-    "test": "jest --no-cache",
+    "test": "jest  --no-cache",
     "build": "tsc",
-    "prod": "npm run build && node dist/entry.js"
+    "prod": "npm run build && node dist/entry.js",
+    "lint": "prettier --write \"src/**/*.ts\" && tslint --project . --fix"
   },
   "keywords": [
-    "anbima",
     "finance",
     "investiments",
-    "cetip",
     "tax",
     "rate",
     "fee"
   ],
   "author": "Rubens Praser Júnior",
   "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "swagger-ui-express": "^4.0.2",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.4",
+    "@types/dotenv": "^6.1.0",
+    "@types/express": "^4.16.1",
+    "@types/jest": "^24.0.11",
+    "@types/supertest": "^2.0.7",
+    "@types/swagger-ui-express": "^3.0.0",
+    "@types/yamljs": "^0.2.30",
+    "jest": "^24.5.0",
+    "nodemon": "^1.18.10",
+    "prettier": "^1.16.4",
+    "supertest": "^4.0.2",
+    "ts-jest": "^24.0.0",
+    "ts-node": "^8.0.3",
+    "tslint": "^5.15.0",
+    "typescript": "^3.3.4000"
+  },
   "jest": {
     "transform": {
       "^.+\\.ts$": "ts-jest"
     },
-    "testRegex": "\\.test\\.ts",
+    "testRegex": "\\.spec\\.ts",
     "moduleFileExtensions": [
       "ts",
       "tsx",
@@ -38,21 +61,5 @@
       "json",
       "node"
     ]
-  },
-  "dependencies": {
-    "dotenv": "^7.0.0",
-    "express": "^4.16.4"
-  },
-  "devDependencies": {
-    "@types/dotenv": "^6.1.0",
-    "@types/express": "^4.16.1",
-    "@types/jest": "^24.0.11",
-    "@types/supertest": "^2.0.7",
-    "jest": "^24.5.0",
-    "nodemon": "^1.18.10",
-    "supertest": "^4.0.2",
-    "ts-jest": "^24.0.0",
-    "ts-node": "^8.0.3",
-    "typescript": "^3.3.4000"
   }
 }
