@@ -1,5 +1,5 @@
 // tslint:disable-next-line: interface-over-type-literal
-type HttpError = {code: number, description: string};
+type HttpError = { code: number; description: string };
 
 class HttpErrors {
   public static NOT_FOUND(): HttpError {
@@ -17,7 +17,8 @@ class HttpErrors {
 
   private static readonly badRequest: HttpError = {
     code: 400,
-    description: "We can't go futher with your request. Please check provided params and tray again",
+    description:
+      "We can't go futher with your request. Please check provided params and tray again",
   };
 
   public constructor() {

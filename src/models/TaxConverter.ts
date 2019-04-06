@@ -22,7 +22,9 @@ abstract class TaxConverter implements ITaxConverter {
 
   private parseTax(tax: string): number {
     const parsedTax = parseFloat(tax) / 100;
-    if (isNaN(parsedTax)) { throw new Error(HttpErrors.BAD_REQUEST().description); }
+    if (isNaN(parsedTax)) {
+      throw new Error(HttpErrors.BAD_REQUEST().description);
+    }
     return parsedTax;
   }
 }

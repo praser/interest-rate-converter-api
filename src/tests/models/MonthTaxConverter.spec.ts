@@ -35,7 +35,7 @@ describe("given a 0.5% tax per month", () => {
     expect(result).toMatchObject({
       perDay: monthTaxConverter.perDay(),
       perMonth: monthTaxConverter.perMonth(),
-      perYear: monthTaxConverter.perYear(),
+      perYear: monthTaxConverter.perYear()
     });
   });
 });

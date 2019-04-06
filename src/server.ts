@@ -9,12 +9,16 @@ import router from "./routes/router";
 dotenv.config();
 const server = express();
 
-const swaggerDocument = YAML.load("/Users/praser/Projects/interest-tax-conversor/src/openApi.yaml");
+const swaggerDocument = YAML.load(
+  "/Users/praser/Projects/interest-tax-conversor/src/openApi.yaml",
+);
 const urls = [process.env.PRODUCTION_URL, process.env.SANDBOX_URL];
-const swaggerServers = urls.map((url, index) => {
-  const description = index === 0 ? "Production Server" : "Sandbox Server";
-  return {description, url};
-}).filter((sawaggerServer) => sawaggerServer.url !== undefined);
+const swaggerServers = urls
+  .map((url, index) => {
+    const description = index === 0 ? "Production Server" : "Sandbox Server";
+    return { description, url };
+  })
+  .filter((sawaggerServer) => sawaggerServer.url !== undefined);
 
 swaggerDocument.servers = swaggerServers;
 
