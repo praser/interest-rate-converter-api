@@ -4,6 +4,7 @@ FROM node:10
 WORKDIR /usr/src/app
 
 # Install app dependencies
+RUN npm install -g typescript
 # A wild card is used to ensure both package.json AND package-lock.json are copied
 # whee available (npm@5+)
 COPY package*.json ./
