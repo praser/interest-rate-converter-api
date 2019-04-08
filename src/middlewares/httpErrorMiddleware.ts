@@ -17,7 +17,7 @@ class HttpError {
 
 const BAD_REQUEST: HttpError = new HttpError(
   400,
-  "We can't go futher with your request. Please check request params and tray again",
+  "We can't go further with your request. Please check request parameters and try again",
 );
 const NOT_FOUND: HttpError = new HttpError(
   404,

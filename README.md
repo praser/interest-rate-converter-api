@@ -1,54 +1,94 @@
-# interest-tax-conversor
+![github-issues](https://img.shields.io/github/issues/praser/interest-rate-converter-api.svg) [![Build Status](https://travis-ci.com/praser/interest-rate-converter-api.svg?branch=master)](https://travis-ci.com/praser/interest-rate-converter-api) [![Maintainability](https://api.codeclimate.com/v1/badges/1427bfa05f0c749c2ba5/maintainability)](https://codeclimate.com/github/praser/interest-tax-conversor/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/1427bfa05f0c749c2ba5/test_coverage)](https://codeclimate.com/github/praser/interest-tax-conversor/test_coverage)
 
-![github-issues](https://img.shields.io/github/issues/praser/interest-tax-conversor.svg) [![Build Status](https://travis-ci.com/praser/interest-tax-conversor.svg?branch=master)](https://travis-ci.com/praser/interest-tax-conversor) [![Maintainability](https://api.codeclimate.com/v1/badges/1427bfa05f0c749c2ba5/maintainability)](https://codeclimate.com/github/praser/interest-tax-conversor/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/1427bfa05f0c749c2ba5/test_coverage)](https://codeclimate.com/github/praser/interest-tax-conversor/test_coverage)
+# Interest Rate Converter API
 
-# A simple Rest API to deal with interest tax conversions #
+A simple Rest API to deal with interest rate conversions
 
-## Features
+## Getting Started
 
-## Install
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-`npm install --save interest-tax-conversor`
+### Prerequisites
 
+To get this project up and running in your local machine all you need is to have NodeJs and npm installed.
 
-## Scripts
+Just click in the image below to be redirected to NodeJs official page and download everything you'll need.
 
- - **npm run dev** : `nodemon --watch "src/" --exec "ts-node src/entry.ts" -e ts`
- - **npm run test** : `jest --no-cache`
- - **npm run build** : `tsc`
- - **npm run prod** : `npm run build && node dist/entry.js`
- - **npm run readme** : `node ./node_modules/.bin/node-readme`
+[![NodeJS](https://nodejs.org/static/images/logo.svg)](https://nodejs.org/en/download/current/ | height=150)
 
-## Dependencies
+### Installing
 
- ![](https://david-dm.org/praser/interest-tax-conversor/status.svg)
-![](https://david-dm.org/praser/interest-tax-conversor/dev-status.svg)
+If you already have all the tools installed it is to get it up and running
 
-Package | Version | Dev
---- |:---:|:---:
-[dotenv](https://www.npmjs.com/package/dotenv) | ^7.0.0 | ✖
-[express](https://www.npmjs.com/package/express) | ^4.16.4 | ✖
-[@types/dotenv](https://www.npmjs.com/package/@types/dotenv) | ^6.1.0 | ✔
-[@types/express](https://www.npmjs.com/package/@types/express) | ^4.16.1 | ✔
-[@types/jest](https://www.npmjs.com/package/@types/jest) | ^24.0.11 | ✔
-[@types/supertest](https://www.npmjs.com/package/@types/supertest) | ^2.0.7 | ✔
-[jest](https://www.npmjs.com/package/jest) | ^24.5.0 | ✔
-[node-readme](https://www.npmjs.com/package/node-readme) | ^0.1.9 | ✔
-[nodemon](https://www.npmjs.com/package/nodemon) | ^1.18.10 | ✔
-[supertest](https://www.npmjs.com/package/supertest) | ^4.0.2 | ✔
-[ts-jest](https://www.npmjs.com/package/ts-jest) | ^24.0.0 | ✔
-[ts-node](https://www.npmjs.com/package/ts-node) | ^8.0.3 | ✔
-[typescript](https://www.npmjs.com/package/typescript) | ^3.3.4000 | ✔
+First at all clone this repo
 
+```
+git clone https://github.com/praser/interest-rate-converter-api.git
+```
+
+Go into project folder
+
+```
+cd intereste-rate-conveter
+```
+
+Install the dependencies
+
+```
+npm install
+```
+
+And finally start development server
+
+```
+npm run dev
+```
+
+If everything is OK you should see the message below in your terminal:
+
+```
+[SERVER] Running at http://localhost:3000.
+[INFO] Please visit http://localhost:3000/doc to see the service documentation.
+```
+
+Visit [http://localhost:3000/doc]() and take a look at the service documentation.
+
+Enjoy :sunglasses:
+
+## Running the tests
+
+This API has a great test coverage and code style check.
+
+### Running unit tests
+
+This suite was created with Jest to ensure that everything is working properly. To run the tests just go into de terminal and type the command below:
+
+```
+npm run test
+```
+
+### Running coding style tests
+
+Code style is automatically verified with Prettier and ESLint. To run this tests, and autofix the mistakes, just enter the command bellow in the terminal:
+
+```
+npm run lint
+```
 
 ## Contributing
 
-Contributions welcome; Please submit all pull requests the against master branch. If your pull request contains JavaScript patches or features, you should include relevant unit tests. Please check the [Contributing Guidelines](contributng.md) for more details. Thanks!
+Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
-## Author
+## Versioning
 
-Rubens Praser Júnior
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/praser/interest-rate-converter-api/tags).
+
+## Authors
+
+* **Rubens Praser Júnior** - *Initial work* - [Praser](https://github.com/praser)
+
+See also the list of [contributors](https://github.com/praser/interest-rate-converter-api/graphs/contributors) who participated in this project.
 
 ## License
 
- - **ISC** : http://opensource.org/licenses/ISC
+This project is licensed under the ISC License - see the [LICENSE.md](LICENSE.md) file for details

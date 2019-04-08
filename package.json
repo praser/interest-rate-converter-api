@@ -1,11 +1,11 @@
 {
-  "name": "interest-tax-conversor",
-  "description": "API to deal with interest tax conversions",
+  "name": "interest-rate-converter-api",
+  "description": "API to deal with interest rates conversions",
   "version": "1.0.0",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/praser/interest-tax-conversor"
+    "url": "https://github.com/praser/interest-rate-converter-api"
   },
   "main": "src/entry.ts",
   "scripts": {
