@@ -1,16 +1,16 @@
 {
-  "name": "interest-tax-conversor",
-  "description": "API to deal with interest tax conversions",
+  "name": "interest-rate-converter-api",
+  "description": "API to deal with interest rates conversions",
   "version": "1.0.0",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/praser/interest-tax-conversor"
+    "url": "https://github.com/praser/interest-rate-converter-api"
   },
   "main": "src/entry.ts",
   "scripts": {
     "dev": "nodemon --watch \"src/\" --exec \"ts-node src/entry.ts\" -e ts",
-    "test": "jest  --no-cache",
+    "test": "jest  --no-cache --coverage",
     "build": "tsc && cp src/openApi.yaml dist/",
     "prod": "npm run build && node dist/entry.js",
     "lint": "prettier --write \"src/**/*.ts\" && tslint --project . --fix"
@@ -61,5 +61,9 @@
       "json",
       "node"
     ]
+  },
+  "prettier": {
+    "trailingComma": "all",
+    "arrowParens": "always"
   }
 }

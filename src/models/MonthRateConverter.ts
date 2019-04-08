@@ -1,7 +1,7 @@
 import config from "../config";
-import TaxConverter from "./TaxConverter";
+import RateConverter from "./RateConverter";
 
-class MonthTaxConverter extends TaxConverter {
+class MonthRateConverter extends RateConverter {
   private monthsInYear: number = parseInt(
     process.env.MONTHS_IN_YEAR || config.monthsInYear,
     config.radix,
@@ -11,21 +11,21 @@ class MonthTaxConverter extends TaxConverter {
     config.radix,
   );
 
-  constructor(tax: string) {
-    super(tax);
+  constructor(rate: string) {
+    super(rate);
   }
 
   public perYear(): number {
-    return Math.pow(1 + this.tax, this.monthsInYear) - 1;
+    return Math.pow(1 + this.rate, this.monthsInYear) - 1;
   }
 
   public perMonth(): number {
-    return this.tax;
+    return this.rate;
   }
 
   public perDay(): number {
-    return Math.pow(1 + this.tax, 1 / this.daysInMonth) - 1;
+    return Math.pow(1 + this.rate, 1 / this.daysInMonth) - 1;
   }
 }
 
-export default MonthTaxConverter;
+export default MonthRateConverter;

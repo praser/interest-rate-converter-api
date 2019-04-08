@@ -1,23 +1,19 @@
 import express from "express";
-import HttpErrors from "../HttpErrors";
-import TaxConverterBuilder from "../models/TaxConverterBuilder";
+import { BAD_REQUEST } from "../middlewares/httpErrorMiddleware";
+import RateConverterBuilder from "../models/RateConverterBuilder";
 
 const router = express.Router();
 
-router.get("/:tax", (req, res) => {
+router.get("/:rate", (req, res, next) => {
   try {
-    const taxCalculator = TaxConverterBuilder.createInstance(
+    const rateCalculator = RateConverterBuilder.createInstance(
       req.baseUrl,
-      req.params.tax,
+      req.params.rate,
     );
 
-    res.send(taxCalculator.serialize());
+    res.send(rateCalculator.serialize());
   } catch (error) {
-    res.status(HttpErrors.NOT_FOUND().code).send({
-      error: {
-        ...HttpErrors.BAD_REQUEST(),
-      },
-    });
+    next(BAD_REQUEST);
   }
 });
 
