@@ -13,7 +13,7 @@ const getServers: any = () => {
 };
 
 const setDocument = () => {
-  const document = YAML.load(path.join(__dirname, "../openApi.yaml"));
+  const document = YAML.load(path.join(__dirname, "../openApi.yml"));
   document.servers = getServers();
 
   return document;
