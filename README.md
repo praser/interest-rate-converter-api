@@ -1,6 +1,6 @@
-![github-issues](https://img.shields.io/github/issues/praser/interest-rate-converter-api.svg) [![Build Status](https://travis-ci.com/praser/interest-rate-converter-api.svg?branch=master)](https://travis-ci.com/praser/interest-rate-converter-api) [![Maintainability](https://api.codeclimate.com/v1/badges/1427bfa05f0c749c2ba5/maintainability)](https://codeclimate.com/github/praser/interest-tax-conversor/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/1427bfa05f0c749c2ba5/test_coverage)](https://codeclimate.com/github/praser/interest-tax-conversor/test_coverage)
-
 # Interest Rate Converter API
+
+![github-issues](https://img.shields.io/github/issues/praser/interest-rate-converter-api.svg) [![Build Status](https://travis-ci.com/praser/interest-rate-converter-api.svg?branch=master)](https://travis-ci.com/praser/interest-rate-converter-api) [![Maintainability](https://api.codeclimate.com/v1/badges/1427bfa05f0c749c2ba5/maintainability)](https://codeclimate.com/github/praser/interest-tax-conversor/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/1427bfa05f0c749c2ba5/test_coverage)](https://codeclimate.com/github/praser/interest-tax-conversor/test_coverage)
 
 A simple Rest API to deal with interest rate conversions
 
@@ -22,36 +22,36 @@ If you already have all the tools installed it is to get it up and running
 
 First at all clone this repo
 
-```
+```bash
 git clone https://github.com/praser/interest-rate-converter-api.git
 ```
 
 Go into project folder
 
-```
+```bash
 cd intereste-rate-conveter
 ```
 
 Install the dependencies
 
-```
+```bash
 npm install
 ```
 
 And finally start development server
 
-```
+```bash
 npm run dev
 ```
 
 If everything is OK you should see the message below in your terminal:
 
-```
+```bash
 [SERVER] Running at http://localhost:3000.
 [INFO] Please visit http://localhost:3000/doc to see the service documentation.
 ```
 
-Visit [http://localhost:3000/doc]() and take a look at the service documentation.
+Visit [http://localhost:3000/doc](http://localhost:3000/doc) and take a look at the service documentation.
 
 Enjoy :sunglasses:
 
@@ -63,7 +63,7 @@ This API has a great test coverage and code style check.
 
 This suite was created with Jest to ensure that everything is working properly. To run the tests just go into de terminal and type the command below:
 
-```
+```bash
 npm run test
 ```
 
@@ -71,7 +71,7 @@ npm run test
 
 Code style is automatically verified with Prettier and ESLint. To run this tests, and autofix the mistakes, just enter the command bellow in the terminal:
 
-```
+```bash
 npm run lint
 ```
 
