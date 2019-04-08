@@ -10,14 +10,14 @@ const getServers: any = () => {
       return { description, url };
     })
     .filter((sawaggerServer) => sawaggerServer.url !== undefined);
-}
+};
 
 const setDocument = () => {
   const document = YAML.load(path.join(__dirname, "../openApi.yaml"));
   document.servers = getServers();
 
   return document;
-}
+};
 
 const swaggerConfig = setDocument();
 const swaggerMiddleware = swaggerUi;

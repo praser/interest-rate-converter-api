@@ -7,20 +7,26 @@ class HttpError {
     this.description = description;
   }
 
-  toObject() {
+  public toObject() {
     return {
       code: this.code,
-      description: this.description
+      description: this.description,
     };
   }
 }
 
-const BAD_REQUEST: HttpError = new HttpError(400, "We can't go futher with your request. Please check request params and tray again")
-const NOT_FOUND: HttpError = new HttpError(404, "The API does not respond to resource you are trying to reach")
+const BAD_REQUEST: HttpError = new HttpError(
+  400,
+  "We can't go futher with your request. Please check request params and tray again",
+);
+const NOT_FOUND: HttpError = new HttpError(
+  404,
+  "The API does not respond to resource you are trying to reach",
+);
 
 const HttpErrorMiddleware = (err: any, _: any, res: any, __: any) => {
   res.status(err.code).send(err);
-}
+};
 
 export { BAD_REQUEST, NOT_FOUND };
 export default HttpErrorMiddleware;

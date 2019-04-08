@@ -1,6 +1,6 @@
 import express from "express";
-import TaxConverterBuilder from "../models/TaxConverterBuilder";
 import { BAD_REQUEST } from "../middlewares/httpErrorMiddleware";
+import TaxConverterBuilder from "../models/TaxConverterBuilder";
 
 const router = express.Router();
 
