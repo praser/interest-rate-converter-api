@@ -61,5 +61,9 @@
       "json",
       "node"
     ]
+  },
+  "prettier": {
+    "trailingComma": "all",
+    "arrowParens": "always"
   }
 }
