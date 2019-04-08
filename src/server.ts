@@ -4,8 +4,8 @@ import express from "express";
 import path from "path";
 import swaggerUi from "swagger-ui-express";
 import YAML from "yamljs";
-import HttpErrors from "./HttpErrors";
 import router from "./routes/router";
+import HttpErrorMiddleware, { NOT_FOUND } from "./middlewares/httpErrorMiddleware";
 
 dotenv.config();
 const server = express();
@@ -24,12 +24,7 @@ swaggerDocument.servers = swaggerServers;
 server.use(cors());
 server.use(/\/per\-(day|month|year)/, router);
 server.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-server.all("*", (_, res) => {
-  return res.status(HttpErrors.NOT_FOUND().code).send({
-    error: {
-      ...HttpErrors.NOT_FOUND(),
-    },
-  });
-});
+server.all("/*", (_, __, next) => next(NOT_FOUND));
+server.use(HttpErrorMiddleware);
 
 export default server;

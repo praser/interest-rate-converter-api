@@ -1,10 +1,10 @@
 import express from "express";
-import HttpErrors from "../HttpErrors";
 import TaxConverterBuilder from "../models/TaxConverterBuilder";
+import { BAD_REQUEST } from "../middlewares/httpErrorMiddleware";
 
 const router = express.Router();
 
-router.get("/:tax", (req, res) => {
+router.get("/:tax", (req, res, next) => {
   try {
     const taxCalculator = TaxConverterBuilder.createInstance(
       req.baseUrl,
@@ -13,11 +13,7 @@ router.get("/:tax", (req, res) => {
 
     res.send(taxCalculator.serialize());
   } catch (error) {
-    res.status(HttpErrors.NOT_FOUND().code).send({
-      error: {
-        ...HttpErrors.BAD_REQUEST(),
-      },
-    });
+    next(BAD_REQUEST);
   }
 });
 
