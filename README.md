@@ -1,6 +1,6 @@
 # Interest Rate Converter API
 
-![github-issues](https://img.shields.io/github/issues/praser/interest-rate-converter-api.svg) [![Build Status](https://travis-ci.com/praser/interest-rate-converter-api.svg?branch=master)](https://travis-ci.com/praser/interest-rate-converter-api) [![Maintainability](https://api.codeclimate.com/v1/badges/1427bfa05f0c749c2ba5/maintainability)](https://codeclimate.com/github/praser/interest-tax-conversor/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/1427bfa05f0c749c2ba5/test_coverage)](https://codeclimate.com/github/praser/interest-tax-conversor/test_coverage)
+![github-issues](https://img.shields.io/github/issues/praser/interest-rate-converter-api.svg) [![Build Status](https://travis-ci.com/praser/interest-rate-converter-api.svg?branch=master)](https://travis-ci.com/praser/interest-rate-converter-api) [![Maintainability](https://api.codeclimate.com/v1/badges/ac58f6ff6ebc9f89637d/maintainability)](https://codeclimate.com/github/praser/interest-rate-converter-api/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/ac58f6ff6ebc9f89637d/test_coverage)](https://codeclimate.com/github/praser/interest-rate-converter-api/test_coverage)
 
 A simple Rest API to deal with interest rate conversions
 
