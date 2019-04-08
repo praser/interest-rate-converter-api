@@ -14,7 +14,7 @@ To get this project up and running in your local machine all you need is to have
 
 Just click in the image below to be redirected to NodeJs official page and download everything you'll need.
 
-[![NodeJS](https://nodejs.org/static/images/logo.svg)](https://nodejs.org/en/download/current/ | height=150)
+[![NodeJS](https://nodejs.org/static/images/logo.svg)](https://nodejs.org/en/download/current/)
 
 ### Installing
 
