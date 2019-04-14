@@ -11,9 +11,10 @@ import router from "./routes/router";
 const server = express();
 
 server.use(cors());
-server.use(/\/per\-(day|month|year)/, router);
+server.use(/.*\/per\-(day|month|year)/, router);
+// server.use(/.*\/per\-(day|month|year)/, (_, res) => res.status(200).send({response: "vrau"}));
 server.use(
-  "/doc",
+  /.*\/doc/,
   swaggerMiddleware.serve,
   swaggerMiddleware.setup(swaggerConfig),
 );
