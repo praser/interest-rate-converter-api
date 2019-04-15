@@ -1,9 +1,10 @@
 language: node_js
 node_js:
   - 11.9.0
+cache:
+  npm: true
 services:
   - docker
-
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
@@ -13,8 +14,22 @@ script:
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 
+before_deploy:
+  - pip3 install --user requests[security] awscli -q > /dev/null 2>&1
+  - export PATH=$PATH:$HOME/.local/bin
+  - curl https://raw.githubusercontent.com/silinternational/ecs-deploy/master/ecs-deploy
+  - sudo tee -a /usr/bin/ecs-deploy > /dev/null 2>&1
+  - sudo chmod +x /usr/bin/ecs-deploy > /dev/null 2>&1
 deploy:
   provider: script
   script: bash src/scripts/deploy.sh
   on:
     branch: master
+addons:
+  apt:
+    sources:
+      - sourceline: 'ppa:eugenesan/ppa'
+    packages:
+      - jq
+      - python3-pip
+    update: true
