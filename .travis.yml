@@ -15,11 +15,11 @@ after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 
 before_deploy:
-  - pip3 install --user requests[security] awscli -q > /dev/null 2>&1
+  - pip3 install --user requests[security] awscli -q
   - export PATH=$PATH:$HOME/.local/bin
   - curl https://raw.githubusercontent.com/silinternational/ecs-deploy/master/ecs-deploy
-  - sudo tee -a /usr/bin/ecs-deploy > /dev/null 2>&1
-  - sudo chmod +x /usr/bin/ecs-deploy > /dev/null 2>&1
+  - sudo tee -a /usr/bin/ecs-deploy
+  - sudo chmod +x /usr/bin/ecs-deploy
 deploy:
   provider: script
   script: bash src/scripts/deploy.sh
